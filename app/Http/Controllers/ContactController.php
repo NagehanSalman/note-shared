@@ -15,10 +15,11 @@ class ContactController extends Controller
         $request->validate([
             'email' => 'required|string|max:255',
             'title' => 'required|string|max:255',
-            'category' => 'required',
-            'sub_category' => 'required',
-            'description' => 'requires|string',
+            'category' => 'required|nullable|integer',
+            'sub_category' => 'required|nullable|integer',
+            'description' => 'required|string',  // 'requires' yerine 'required' olmalı
         ]);
+        
 
         Contact::create($request->all());
 
